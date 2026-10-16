@@ -1,0 +1,2 @@
+# Preserve the exact bytes covered by the release receipt on every platform.
+* -text

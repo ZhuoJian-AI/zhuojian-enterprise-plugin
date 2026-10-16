@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "zhuojian-enterprise": {
+      "type": "streamable-http",
+      "url": "https://ai-platform.staging.zhuojianai.com/api/v1/enterprise-mcp"
+    }
+  }
+}

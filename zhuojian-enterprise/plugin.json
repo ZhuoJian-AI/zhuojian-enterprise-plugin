@@ -1,0 +1,24 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "zhuojian-enterprise",
+  "version": "0.1.1",
+  "description": "查询当前获权业务、确认业务操作，并把本机生成的文件交付到灼见工作空间。",
+  "author": { "name": "ZhuoJian AI" },
+  "keywords": ["enterprise", "workspace", "business"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "灼见企业",
+        "shortDescription": "连接获权业务与工作空间",
+        "longDescription": "使用当前企业身份查询业务、在第一方页面确认写入，并交付可追溯的工作空间文件。",
+        "developerName": "ZhuoJian AI",
+        "category": "Productivity",
+        "capabilities": ["Read", "Write"],
+        "defaultPrompt": ["查看我当前可用的业务能力", "把分析结果保存到我有权限的工作空间"],
+        "brandColor": "#176B64",
+        "composerIcon": "./assets/icon.svg",
+        "logo": "./assets/icon.svg"
+      }
+    }
+  }
+}

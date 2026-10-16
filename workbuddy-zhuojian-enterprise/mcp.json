@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "zhuojian-enterprise": {
+      "type": "streamableHttp",
+      "url": "https://ai-platform.staging.zhuojianai.com/api/v1/enterprise-mcp",
+      "timeout": 30000
+    }
+  }
+}
