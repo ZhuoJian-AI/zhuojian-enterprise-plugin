@@ -1,0 +1,8 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+.claude/settings.local.json
+.claude/*.lock
+.claude/worktrees/
+.local/
