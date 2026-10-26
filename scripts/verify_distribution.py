@@ -1,4 +1,4 @@
-"""Verify the unchanged distribution against its original receipt (stdlib only)."""
+"""Verify the current release against its build receipt (stdlib only)."""
 import argparse
 import hashlib
 import json
