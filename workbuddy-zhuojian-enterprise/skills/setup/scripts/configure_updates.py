@@ -286,7 +286,9 @@ def configure(config_path: Path, *, apply: bool = False, requester=None, runner=
             return report("update_failed_restored" if restored else "rollback_required", version)
         try:
             registered = config_reader(home)
-            if not trusted_source(registered, marketplace_url) or not source_matches(registered, available_source(executable, runner)):
+            installed = installed_plugin(executable, runner)
+            effective = installed["marketplaceSource"] if installed else available_source(executable, runner)
+            if not trusted_source(registered, marketplace_url) or not source_matches(registered, effective):
                 return report("verification_required", version)
         except (OSError, ValueError, TypeError, AttributeError, subprocess.TimeoutExpired):
             return report("verification_required", version)

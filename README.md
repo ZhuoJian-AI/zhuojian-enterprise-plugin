@@ -2,94 +2,83 @@
 
 在 Codex 中连接你已获授权的企业业务：查询业务数据、发现可用应用、处理资料，并把结果交付到企业工作空间。
 
-**当前候选版本为 0.1.2，已完成本机验收，尚未公开发布。国内员工分发入口尚未部署。** 详见[本次候选交接](docs/handoff/2026-10-26_onboarding-candidate.md)；维护者公开版本以 [Releases](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/releases) 为准。
+**当前候选为 0.1.3，已通过公司隔离 CI 和分发制品校验，尚待上线验收及公开发行。** 国内第一方入口已承载并实际验证 `0.1.2`；不能据此认定 `0.1.3` 已上线或跨版本自动升级已通过。见[候选交接](docs/handoff/2026-10-26_onboarding-candidate.md)。
 
-[维护者版本附件](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/releases/latest) · [版本说明](./release/RELEASE_NOTES.md)
+[维护者版本附件](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/releases) · [版本说明](./release/RELEASE_NOTES.md)
 
 ## 员工安装与首次连接
 
-员工端的正式方案是**国内灼见官方分发和更新入口**，不要求员工访问 GitHub、配置 VPN 或维护代理。当前 `0.1.2` 候选尚待接入和验收这个入口；未上线前，不能将本仓库的 GitHub 地址当成员工可用入口。
+员工使用国内灼见官方分发和更新入口，不需要访问 GitHub、配置 VPN 或维护代理。`0.1.3` 完成真实入口验收后，本页会提供对应的安装和旧来源迁移步骤。已有版本和授权应保留。
 
-需要支持插件的 Codex 版本，以及已有权限的灼见企业账号。国内入口发布并验收后，本页将给出可直接交给 Codex 执行的员工安装步骤。旧版本和现有授权应保留，不能为了等待入口就绪先卸载。
-
-安装后运行插件的设置引导，或选择“灼见企业”并说：
+需要支持插件的 Codex 及已有权限的灼见企业账号。安装后运行插件的设置引导，或选择“灼见企业”并说：
 
 > 检查灼见企业连接并引导我登录。
 
-引导先检查当前工具和连接：网络正常且需要授权时，使用宿主原生流程，由你在灼见第一方页面用**自己的账号**核对企业、身份和授权范围。网络认证、证书或服务异常会给出对应状态与下一步，不把“已安装”当作“已连接”，也不把换热点作为正式使用条件。
+引导先检查当前工具和连接。网络正常且需要授权时，使用宿主原生流程，由你在灼见第一方页面用自己的账号核对企业、身份和授权范围。网络认证、证书或服务异常会给出对应状态和下一步，不把“已安装”当作“已连接”，也不把换热点作为正式使用条件。
 
-授权后由真实身份和能力查询验证可用范围；工具尚未加载时，按宿主实际支持的方式刷新连接，必要时在新聊天继续。浏览器里已经登录灼见，不等于插件已经完成授权。
+授权后以真实身份和获权目录验证可用范围。工具尚未加载时，按宿主支持的方式刷新连接，必要时在新聊天继续。浏览器已登录灼见，不等于插件已获授权。
 
-`zhuojian-enterprise-pilot` 是现有插件市场的技术名称，因此界面可能显示“灼见企业试点”。
-
-不同版本的图形界面入口可能不同。没有终端或代码环境时，使用宿主已有的插件连接界面；不能要求员工为连接业务自行安装开发依赖。
+`zhuojian-enterprise-pilot` 是现有市场的技术名称，界面可能显示“灼见企业试点”。不同宿主版本的入口可能不同；没有终端或代码环境时使用宿主已有的插件连接界面，不要求员工自行安装开发依赖。
 
 ### 更新与旧版本迁移
 
-在已核对的 Codex `0.164.0-alpha.11.1` 中，宿主启动时会在后台检查已登记的 Git 更新源，有新 revision 时刷新已安装插件缓存；没有固定周期轮询的承诺。本机隔离验收已覆盖首次安装、原生升级、启动自动升级和离线保留安装，但国内正式 HTTPS 入口尚未部署，员工端自动更新仍未启用。
+已核对的 Codex `0.164.0-alpha.11.1` 会在宿主启动时后台检查已登记的 Git 更新源，有新 revision 时刷新已安装插件缓存。这不是固定周期轮询，也不保证当前聊天立即加载新工具或 Skill；必要时新开聊天。更新源暂时不可达时保留已有版本，并明确提示状态。
 
-实际是否完成更新，以本机显示的已安装版本为准。更新插件文件不代表当前聊天已加载新工具或新 Skill，必要时新开聊天。更新源暂时不可达时应保留已有版本，并明确提示更新状态。插件不安装自升级常驻进程，不修改整机代理或证书。
+`0.1.3` 修复来源迁移中的状态误判：原生宿主已经返回真实已安装插件时，接入脚本优先核对该安装项的来源，不再要求它同时出现在“尚可安装”的列表中。`installed` 非空而 `available=[]` 是合法状态；一次接入能否直接完成仍以本次真实验收为准。
 
-旧 `0.1.1` 无论来自本地解压目录还是 GitHub，都需要在国内入口就绪后核对并切换到国内官方来源，再完成本次升级。使用宿主支持的市场管理流程处理，不覆盖其他来源或删除现有授权。不要把本地 ZIP 路径当成自动联网更新源。
+旧 `0.1.1` 的本地或境外来源需要一次迁移到国内官方 Git 来源，再完成升级；本地 ZIP 路径不会自动联网下载新版本。接入通过宿主原生市场管理，不覆盖其他来源，不安装自升级常驻进程，也不修改整机代理或证书。
 
-本次保留 MCP 服务名称和连接地址，不要求为了升级主动退出登录或删除原有授权；升级后仍须核验当前企业身份和有效权限，过期或撤销的授权按实际状态处理。插件更新不增加业务权限。
+本次保持 MCP 服务名称和连接地址，不要求为了升级主动退出登录或删除原有授权；升级后仍须核验当前企业身份和有效权限。过期或撤销的授权按实际状态处理，插件更新不增加业务权限。
 
 ## 维护者安装与手动分发
 
-以下 GitHub 通道只面向维护者和制品核验，不作为员工安装或更新的前提：
+GitHub 仅供维护者托管和制品核验，不作为员工安装或更新的前提：
 
 ```sh
 codex plugin marketplace add ZhuoJian-AI/zhuojian-enterprise-plugin
 codex plugin add zhuojian-enterprise@zhuojian-enterprise-pilot
 ```
 
-维护者也可从版本附件取得 ZIP，校验后通过获准的国内通道交付：
+维护者也可从版本附件取得 ZIP，通过获准的国内通道交付：
 
-1. 从 [Releases](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/releases/latest) 下载对应版本的 **`zhuojian-enterprise-marketplace-0.1.2-pilot.zip`**；尚未发布时不要把旧版本下载结果当成新版本。
+1. 从 [Releases](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/releases) 下载目标版本的 `zhuojian-enterprise-marketplace-0.1.3-pilot.zip` 并核对 SHA256；候选未发行时不要把旧附件当成新版本。
 2. 完整解压，保留 `.agents` 隐藏目录。
-3. 将下面的路径换成解压后包含 `.agents/plugins/marketplace.json` 的目录，再执行安装命令：
+3. 将下面的路径换成解压后包含 `.agents/plugins/marketplace.json` 的目录：
 
 ```sh
 codex plugin marketplace add "/path/to/extracted-marketplace"
 codex plugin add zhuojian-enterprise@zhuojian-enterprise-pilot
 ```
 
-不要把 ZIP 文件或其中单独的 `zhuojian-enterprise` 子目录作为 marketplace 根目录。
+不要将 ZIP 文件或其中单独的 `zhuojian-enterprise` 子目录作为 marketplace 根目录。本地路径适用于手动导入，持续更新使用经部署和验收的国内官方来源。
 
-本地 ZIP 适用于手动分发和离线导入。添加解压后的本地路径，不会让该路径自动联网下载新版本；员工持续更新使用经部署和验收的国内官方来源。
-
-包内原 README 的 `.invalid` 源码模板说明供维护者参考；本仓库及下载包的 `mcp.json` 已配置实际服务地址，可按本页直接安装。
-
-官方格式与市场说明：[OpenAI 插件文档](https://developers.openai.com/plugins/build/plugins)。
+包内原 README 的 `.invalid` 地址是规范源模板说明；本仓库和附件中的 `mcp.json` 已配置实际公开服务地址。格式说明见 [OpenAI 插件文档](https://developers.openai.com/plugins/build/plugins)。
 
 ## 账号与权限
 
-- 插件面向灼见平台已开通接入的企业，不只对应某个固定企业；目前已完成 Alphabet 的 Codex 试点。
-- 企业、用户身份及可操作范围由登录授权和服务端权限决定，安装包不包含任何人的账号或令牌。
-- 下载插件不会自动获得 Alphabet 或其他企业的数据权限。没有灼见账号/权限时，请联系所在企业管理员开通。
-- 涉及写入、上传等操作，按第一方页面的确认流程完成；Codex 的工具许可不能代替业务确认。
-- 本插件提供企业工具和业务说明；模型与本机代码执行能力由所使用的客户端提供。
+- 插件面向灼见平台已开通接入的企业，不只对应某个固定企业；具体能力由当前身份和服务端权限决定。
+- 安装包不包含个人账号或令牌。下载插件不会获得其他企业的数据权限；缺少账号或权限时联系所在企业管理员。
+- 写入、上传等操作仍由本人在第一方页面确认，宿主工具许可不能代替业务确认。
+- 插件提供企业工具和业务说明；模型与本机代码执行能力由客户端提供。
 
 ## 包的区别
 
 | 文件 | 用途 |
 | --- | --- |
-| `zhuojian-enterprise-marketplace-0.1.2-pilot.zip` | Codex 完整市场包，供手动分发和导入 |
-| `zhuojian-enterprise-0.1.2-pilot.zip` | 单独插件目录，供支持该格式的导入流程使用 |
-| `workbuddy-zhuojian-enterprise-0.1.2-pilot.zip` | WorkBuddy 连接器试点包，真实客户端导入和 OAuth 尚待验收 |
+| `zhuojian-enterprise-marketplace-0.1.3-pilot.zip` | Codex 完整市场包，供手动分发和导入 |
+| `zhuojian-enterprise-0.1.3-pilot.zip` | 单独插件目录，供支持该格式的导入流程使用 |
+| `workbuddy-zhuojian-enterprise-0.1.3-pilot.zip` | WorkBuddy 连接器试点包，真实客户端导入及 OAuth 待验收 |
 
-WorkBuddy 的说明见 [连接器 README](./workbuddy-zhuojian-enterprise/README.md)。本次未提交任何公共插件商店，也未完成 Claude Code 客户端适配验收。
+WorkBuddy 说明见[连接器 README](./workbuddy-zhuojian-enterprise/README.md)。本次未提交公共插件商店，也未完成 Claude Code 客户端适配验收。
 
 ## 验证与维护
 
-`0.1.2` 增加随包首次接入 Skill、只读连接检查和国内更新接入脚本，Codex 清单声明标准安装引导入口，WorkBuddy 共享业务 Skill 和诊断资源。分发文件从规范源最终构建逐字导入，17 个文件及三个 ZIP 的哈希和归档内容校验通过。
+本候选继承首次接入 Skill、只读连接诊断、本人登录引导和国内来源接入，并修复真实安装状态校验。17 个文件从规范源最终 `0.1.3` 构建逐字导入，三个 ZIP 的哈希及内容校验通过；公司隔离 CI 已通过 96 项测试、共享源同步检查、构建和分发验证。
 
-最终真实插件包已通过本机 Nginx `1.28.0` 的六项静态分发检查及真实 Git clone；原生更新机制通过隔离 fixture 的四项验收。这些结果验证本机构建和更新机制，不代表国内 HTTPS 已上线、员工自动更新已启用，或所有企业业务已经验收。详见[候选交接](docs/handoff/2026-10-26_onboarding-candidate.md)。
+此前 `0.1.2` 已通过本机及 Linux 容器静态分发检查、国内真实 HTTPS 的 29 个公共文件校验、严格 TLS Git clone、原生安装和启动检查。隔离 fixture 还覆盖版本升级及离线保留；这些历史证据不替代 `0.1.3` 的真实上线、一次来源迁移和跨版本启动自动升级验收。
 
-本机已原生安装最终 `0.1.2` 包并逐文件核对一致，Codex 只读业务联通通过；安装来源仍为本地最终构建，国内自动更新来源未启用。写入、上传及其他宿主的验收范围分别保留。
+Codex 只读业务联通已有独立验收；真实业务写入、上传、企业管理员宿主、WorkBuddy 和手机真机仍须分别验证。具体范围见[候选交接](docs/handoff/2026-10-26_onboarding-candidate.md)。
 
-历史 `0.1.1` 的 OAuth 和读取工具验收只证明当时版本，不能代替 `0.1.2` 验证。具体测试与未测项以本次交接为准；真实业务写入、上传、企业管理员及 WorkBuddy 完整流程仍须独立验收。
+校验文件见 [`release/SHA256SUMS`](./release/SHA256SUMS) 和 [`release/build-receipt.json`](./release/build-receipt.json)。回执中的 `not-deployed`、`not-installed`、`not-tested` 说明构建器不执行这些动作，不能代表当前线上状态。
 
-校验文件见 [`release/SHA256SUMS`](./release/SHA256SUMS) 和 [`release/build-receipt.json`](./release/build-receipt.json)。回执中的 `not-deployed` / `not-installed` / `not-tested` 表示构建脚本本身不执行这些动作，不能据此判断当前线上服务状态。
-
-维护者可运行 `python scripts/verify_distribution.py` 验证分发文件；加 `--archives <下载目录>` 可同时检查 ZIP 哈希与内容。更新时发布新版本，避免覆盖历史安装包。
+维护者运行 `python scripts/verify_distribution.py` 检查分发文件，加 `--archives <下载目录>` 同时核对 ZIP 哈希与内容。新版本单独发行，保留历史版本字节。
