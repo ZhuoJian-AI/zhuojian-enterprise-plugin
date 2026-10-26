@@ -1,6 +1,6 @@
 # 0.1.3 首次接入与来源修复交付
 
-当前状态：**国内第一方入口已上线 0.1.3，真实 HTTPS、一次来源接入及实际跨版本启动自动升级均已验证。** 客户端交付见 [PR #1](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/pull/1)，公开版本及附件以 [Releases](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/releases) 为准。
+当前状态：**国内第一方入口已上线 0.1.3，真实 HTTPS、一次来源接入及实际跨版本启动自动升级均已验证；公开 v0.1.3 已发行并完成五个附件的匿名下载校验。** 客户端交付见 [PR #1](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/pull/1)，版本及附件见 [v0.1.3 Release](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/releases/tag/v0.1.3)。
 
 ## 责任和范围
 
@@ -43,6 +43,10 @@
 
 ## 发布与剩余边界
 
-维护者公开发行使用独立 `v0.1.3` 版本和五个附件（三个 ZIP、构建回执、校验表），上传后须匿名下载逐项核验；不覆盖历史 `0.1.1` 或已有国内 `0.1.2/0.1.3` 字节。
+维护者公开发行使用独立 `v0.1.3`，对应 PR #1 合并提交 `f1df7aa8dc4a2d21cfc0c52953cd5646d4b72c35`。发布于 `2026-10-26 02:32:12 UTC`，已核验为最新稳定 Release。
+
+五个附件（三个 ZIP、构建回执、校验表）已逐项匿名下载，HTTP 200，实际 SHA256、大小和 API 文件摘要全部匹配；下载得到的三个 ZIP 再通过归档白名单和逐文件内容校验。标签指向上述已验证合并提交，没有将文档收尾提交重新指派给该标签。
+
+历史 `v0.1.1` 标签仍为 `209edabdf07f4efa6424215a7374fd58ae005504`，其 Release 及五个附件的不可变字段前后保持；已有国内 `0.1.2/0.1.3` 字节未覆盖。
 
 GitHub 仅面向维护者，不作为员工使用前提。真实业务写入、上传、企业管理员宿主、WorkBuddy 和手机真机仍须分别验收。
