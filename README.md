@@ -2,7 +2,7 @@
 
 在 Codex 中连接你已获授权的企业业务：查询业务数据、发现可用应用、使用灼见生成图片，并把结果交付到企业工作空间。
 
-**本分支为 0.1.4 生图发行候选，尚未切换正式发行。** 规范源、17 个客户端文件、三个 ZIP 及国内发行候选已核验；后端激活、真实生图及公开发行状态见[本版交接](docs/handoff/2026-10-26_image-generation-0.1.4.md)。此前 `0.1.3` 的国内首次接入、来源迁移及启动自动升级验收仍见[历史记录](docs/handoff/2026-10-26_onboarding-candidate.md)。
+**0.1.4 已上线国内入口，并完成真实灼见生图验收。** 当前聊天已通过本人授权生成图片，显示原生预览并取得正式文件回执；原生升级到 `0.1.4` 及 OAuth 保留也已通过。规范源、17 个客户端文件、三个 ZIP 及国内 HTTPS 已核验，公开附件发行状态见[本版交接](docs/handoff/2026-10-26_image-generation-0.1.4.md)。此前 `0.1.3` 的首次接入、来源迁移及启动自动升级验收仍见[历史记录](docs/handoff/2026-10-26_onboarding-candidate.md)。
 
 [维护者版本附件](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/releases) · [版本说明](./release/RELEASE_NOTES.md)
 
@@ -98,9 +98,9 @@ WorkBuddy 说明见[连接器 README](./workbuddy-zhuojian-enterprise/README.md)
 
 本版保留首次接入、本人登录及国内自动更新，并补齐图片能力发现、任务恢复、原生预览和正式文件交付说明。17 个文件从规范源 `0.1.4` 构建逐字导入，三个 ZIP 的哈希及内容校验通过；源码导出逐文件核对原始 Git blob，不以 Windows 换行转换后的检出内容代替规范源。
 
-本版国内候选包含 58 个公共文件，保留上一版全部 38 个不可变对象及下载；正式指针由受保护流程在后端就绪后切换。候选构建与本地验证不冒充线上 HTTPS、实际宿主或真实生图验收，最新状态见[本版交接](docs/handoff/2026-10-26_image-generation-0.1.4.md)。
+本版国内入口已激活，58 个公共文件的 HTTPS、MIME、哈希及严格 TLS Git 克隆通过，9 个 Git 文件逐字核验；上一版全部 38 个不可变对象及下载保留。当前聊天真实任务通过灼见服务交付一张 `1536×1024` PNG，计量审计确认使用企业目录的 `gpt-image-2`；详情见[本版交接](docs/handoff/2026-10-26_image-generation-0.1.4.md)。
 
-历史 `0.1.3` 已核验国内来源、OAuth 保留及只读业务联通；Windows Git 换行转换的完整性边界见[历史交付记录](docs/handoff/2026-10-26_onboarding-candidate.md)。真实业务写入、外部上传、企业管理员宿主、WorkBuddy 和手机真机仍须分别验证。包内 README 记录构建候选时的状态，正式发行状态以本仓交接和 Release 为准。
+历史 `0.1.3` 已核验国内来源、OAuth 保留及只读业务联通；Windows Git 换行转换的完整性边界见[历史交付记录](docs/handoff/2026-10-26_onboarding-candidate.md)。本版原生升级采用宿主正常投影一致的验收依据，不宣称安装缓存等于 Git 原始字节。真实业务写入、外部上传、企业管理员宿主、WorkBuddy 和手机真机仍须分别验证。包内 README 记录构建候选时的状态，正式发行状态以本仓交接和 Release 为准。
 
 校验文件见 [`release/SHA256SUMS`](./release/SHA256SUMS) 和 [`release/build-receipt.json`](./release/build-receipt.json)。回执中的 `not-deployed`、`not-installed`、`not-tested` 说明构建器不执行这些动作，不能代表当前线上状态。
 
