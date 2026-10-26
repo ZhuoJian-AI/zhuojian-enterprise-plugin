@@ -4,16 +4,13 @@
 
 **这是可直接安装的插件分发仓库。当前候选版本：0.1.2。** 发布状态以 [Releases](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/releases) 为准。
 
-[下载安装包](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/releases/latest) · [版本说明](./release/RELEASE_NOTES.md)
+[维护者版本附件](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/releases/latest) · [版本说明](./release/RELEASE_NOTES.md)
 
-## 在 Codex 中安装
+## 员工安装与首次连接
 
-需要支持插件的 Codex 版本，以及已有权限的灼见企业账号。推荐使用本仓库的 Git marketplace 来源，以便由宿主原生机制刷新市场和更新插件。可以让 Codex 完成下面的安装步骤：
+员工端的正式方案是**国内灼见官方分发和更新入口**，不要求员工访问 GitHub、配置 VPN 或维护代理。当前 `0.1.2` 候选尚待接入和验收这个入口；未上线前，不能将本仓库的 GitHub 地址当成员工可用入口。
 
-```sh
-codex plugin marketplace add ZhuoJian-AI/zhuojian-enterprise-plugin
-codex plugin add zhuojian-enterprise@zhuojian-enterprise-pilot
-```
+需要支持插件的 Codex 版本，以及已有权限的灼见企业账号。国内入口发布并验收后，本页将给出可直接交给 Codex 执行的员工安装步骤。旧版本和现有授权应保留，不能为了等待入口就绪先卸载。
 
 安装后运行插件的设置引导，或选择“灼见企业”并说：
 
@@ -25,17 +22,28 @@ codex plugin add zhuojian-enterprise@zhuojian-enterprise-pilot
 
 `zhuojian-enterprise-pilot` 是现有插件市场的技术名称，因此界面可能显示“灼见企业试点”。
 
-如果终端提示没有 `codex` 或 `plugin` 命令，请先安装/更新支持插件的 Codex，或把本仓库链接交给你的 Codex，请它依照本页安装。不同版本的图形界面入口可能不同。
+不同版本的图形界面入口可能不同。没有终端或代码环境时，使用宿主已有的插件连接界面；不能要求员工为连接业务自行安装开发依赖。
 
 ### 更新与旧版本迁移
 
-通过官方 Git marketplace 安装后，市场刷新和已安装缓存更新交给 Codex 原生机制；实际是否完成更新，以本机显示的已安装版本为准。更新插件文件不代表当前聊天已加载新工具或新 Skill，必要时新开聊天。插件不安装自升级常驻进程，不修改整机代理或证书。
+在已核对的 Codex `0.164.0-alpha.11.1` 中，宿主启动时会在后台检查已登记的 Git 更新源，有新 revision 时刷新已安装插件缓存；没有固定周期轮询的承诺。国内官方 Git 更新源的接入仍待实际验收，不能仅凭这项原生机制宣称员工自动更新已完成。
 
-旧 `0.1.1` 如果来自本地解压目录，需要先做一次来源切换，改为本仓库的 Git marketplace，并完成本次升级。可以把本仓库链接交给 Codex，让它核对当前来源后使用宿主支持的市场管理流程处理。不要把本地 ZIP 安装与原生 Git 来源的联网更新混为一谈。
+实际是否完成更新，以本机显示的已安装版本为准。更新插件文件不代表当前聊天已加载新工具或新 Skill，必要时新开聊天。更新源暂时不可达时应保留已有版本，并明确提示更新状态。插件不安装自升级常驻进程，不修改整机代理或证书。
+
+旧 `0.1.1` 无论来自本地解压目录还是 GitHub，都需要在国内入口就绪后核对并切换到国内官方来源，再完成本次升级。使用宿主支持的市场管理流程处理，不覆盖其他来源或删除现有授权。不要把本地 ZIP 路径当成自动联网更新源。
 
 本次保留 MCP 服务名称和连接地址，不要求为了升级主动退出登录或删除原有授权；升级后仍须核验当前企业身份和有效权限，过期或撤销的授权按实际状态处理。插件更新不增加业务权限。
 
-### 手动下载安装
+## 维护者安装与手动分发
+
+以下 GitHub 通道只面向维护者和制品核验，不作为员工安装或更新的前提：
+
+```sh
+codex plugin marketplace add ZhuoJian-AI/zhuojian-enterprise-plugin
+codex plugin add zhuojian-enterprise@zhuojian-enterprise-pilot
+```
+
+维护者也可从版本附件取得 ZIP，校验后通过获准的国内通道交付：
 
 1. 从 [Releases](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/releases/latest) 下载对应版本的 **`zhuojian-enterprise-marketplace-0.1.2-pilot.zip`**；尚未发布时不要把旧版本下载结果当成新版本。
 2. 完整解压，保留 `.agents` 隐藏目录。
@@ -48,7 +56,7 @@ codex plugin add zhuojian-enterprise@zhuojian-enterprise-pilot
 
 不要把 ZIP 文件或其中单独的 `zhuojian-enterprise` 子目录作为 marketplace 根目录。
 
-本地 ZIP 适用于手动分发和离线导入。添加解压后的本地路径，不会让该路径自动从 GitHub 下载新版本；需要持续原生更新时使用上面的 Git 来源。
+本地 ZIP 适用于手动分发和离线导入。添加解压后的本地路径，不会让该路径自动联网下载新版本；员工持续更新使用经部署和验收的国内官方来源。
 
 包内原 README 的 `.invalid` 源码模板说明供维护者参考；本仓库及下载包的 `mcp.json` 已配置实际服务地址，可按本页直接安装。
 
