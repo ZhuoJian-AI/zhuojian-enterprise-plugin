@@ -1,27 +1,33 @@
 {
   "status": "valid",
   "endpoint": "https://ai-platform.staging.zhuojianai.com/api/v1/enterprise-mcp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "portableMcpValidation": "full-upstream-schema",
   "deploymentStatus": "not-deployed",
   "installationStatus": "not-installed",
   "hostAcceptance": "not-tested",
   "files": {
-    "zhuojian-enterprise/README.md": "e946750bfc5c5cc817d43de10c971001f1af6fdcce4d3f2c1441fee876645d02",
+    "zhuojian-enterprise/README.md": "dffc0ccf24fd2fec1c40716ec850aded419b34b2414e91b449ebfec3c8381271",
     "zhuojian-enterprise/assets/icon.svg": "5446de28893d6e2570ca34b127b6688a4beb4f8a419b95e08cec8f4f63ab41ee",
     "zhuojian-enterprise/mcp.json": "41687a5faaa2c91badf5a9a9fe8b91f32bad999c76bfa5568ee701c56bec3faf",
-    "zhuojian-enterprise/plugin.json": "56d459f019c1b7a474b710a1f41a182e17b5e010b2cdc0122b985cd314054ae9",
-    "zhuojian-enterprise/skills/zhuojian-enterprise/SKILL.md": "bee6b4b36155d71b1d32bcfa526000b33884c294f67290c9c30926d1f3d36f12",
-    "workbuddy-zhuojian-enterprise/README.md": "920e51ca1423d33e3d191aea8faaffbc0d5ec9f87657da92d1e26fa9b60ffbc4",
-    "workbuddy-zhuojian-enterprise/connector-meta.json": "682bdfa527a8c21c2f44fac37ffb7771f2f6900d806ad85c552a91c142f481f9",
+    "zhuojian-enterprise/plugin.json": "99b5ee1e75d444c263b1645dcb9b77ddb0b5481783dabcfcb62aaaa4bb0966b5",
+    "zhuojian-enterprise/skills/setup/SKILL.md": "130d29a024d44737adba6fa8b222cb9a069cf2e2ee2be630e574df52b8891842",
+    "zhuojian-enterprise/skills/setup/scripts/check_connection.py": "33b1838dfe19fcf21a7b5e4e18dc82fd887ab411f65c86f41de2f854777167dc",
+    "zhuojian-enterprise/skills/setup/scripts/configure_updates.py": "51791666ec7211b396faa383069054e37ebee4b9007677a4441cb79292f7926f",
+    "zhuojian-enterprise/skills/zhuojian-enterprise/SKILL.md": "1a765d438ac4c585cef8e51f7972f2f3b36c26ead126a49593a78fd1eb586ed3",
+    "workbuddy-zhuojian-enterprise/README.md": "89aa489e37d64e6651d77cf6a4cd582317e45907fe0770d50a1dd808d352e772",
+    "workbuddy-zhuojian-enterprise/connector-meta.json": "c834cdc68b47add6a735a12bfddabae4596b0fe7c3ac4fcd6a68f973325ee7d3",
     "workbuddy-zhuojian-enterprise/icon.svg": "5446de28893d6e2570ca34b127b6688a4beb4f8a419b95e08cec8f4f63ab41ee",
     "workbuddy-zhuojian-enterprise/mcp.json": "e86948ed5338862ad22be0db0b2292e363548b457ac467cf41975d31a23dcf48",
-    "workbuddy-zhuojian-enterprise/skills/zhuojian-enterprise/SKILL.md": "bee6b4b36155d71b1d32bcfa526000b33884c294f67290c9c30926d1f3d36f12",
+    "workbuddy-zhuojian-enterprise/skills/setup/SKILL.md": "130d29a024d44737adba6fa8b222cb9a069cf2e2ee2be630e574df52b8891842",
+    "workbuddy-zhuojian-enterprise/skills/setup/scripts/check_connection.py": "33b1838dfe19fcf21a7b5e4e18dc82fd887ab411f65c86f41de2f854777167dc",
+    "workbuddy-zhuojian-enterprise/skills/setup/scripts/configure_updates.py": "51791666ec7211b396faa383069054e37ebee4b9007677a4441cb79292f7926f",
+    "workbuddy-zhuojian-enterprise/skills/zhuojian-enterprise/SKILL.md": "1a765d438ac4c585cef8e51f7972f2f3b36c26ead126a49593a78fd1eb586ed3",
     ".agents/plugins/marketplace.json": "b63e1600ebaeede305eed9558128a0e446d372cc6724de3bd61e3695d021f826"
   },
   "archives": {
-    "zhuojian-enterprise-0.1.1-pilot.zip": "11cea8d8132f173875e4e068c1ed930ccf2eef0b12ec483cd8042a5d130d390c",
-    "workbuddy-zhuojian-enterprise-0.1.1-pilot.zip": "ac1b64d24b082123c79808a7b43e1963574529f5da327d50df1d2ceeef856241",
-    "zhuojian-enterprise-marketplace-0.1.1-pilot.zip": "0c0932c813554c0f5682b0f20ec07ea9a499d77469ce6a54c50655451c819704"
+    "zhuojian-enterprise-0.1.2-pilot.zip": "3dd633a43eb7fca9a4a31b46c0c053f919c6f83e1496a5c057d410e367337e54",
+    "workbuddy-zhuojian-enterprise-0.1.2-pilot.zip": "fcc537a717ea6a46269a83f50541aa91ef6a9bba3823b7e60a6eebfca559aa41",
+    "zhuojian-enterprise-marketplace-0.1.2-pilot.zip": "f6fd5e3f5532f56cbae1c2226c155ff29ec16fea18275fd8952bdd4c6be93580"
   }
 }

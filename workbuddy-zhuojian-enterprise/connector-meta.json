@@ -7,7 +7,7 @@
   "description_en": "Query authorized business data, confirm changes on ZhuoJian, and deliver local files to your workspace.",
   "source": "zhuojian-enterprise",
   "type": "mcp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "minWorkbuddyVersion": "4.24.0",
   "examples_zh": ["查看我当前可用的业务能力", "把分析结果保存到我有权限的工作空间"],
   "examples_en": ["Show my available business capabilities", "Save my analysis to a workspace I can write to"]
