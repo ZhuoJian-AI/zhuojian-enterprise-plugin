@@ -1,8 +1,8 @@
 # 灼见企业插件
 
-在 Codex 中连接你已获授权的企业业务：查询业务数据、发现可用应用、处理资料，并把结果交付到企业工作空间。
+在 Codex 中连接你已获授权的企业业务：查询业务数据、发现可用应用、使用灼见生成图片，并把结果交付到企业工作空间。
 
-**当前版本为 0.1.3，国内第一方入口已上线并完成真实验收。** 已验证首次接入、一次来源迁移，以及宿主启动时实际从 `0.1.2` 自动升级到 `0.1.3`。见[交付与验收记录](docs/handoff/2026-10-26_onboarding-candidate.md)。
+**本分支为 0.1.4 生图发行候选，尚未切换正式发行。** 规范源、17 个客户端文件、三个 ZIP 及国内发行候选已核验；后端激活、真实生图及公开发行状态见[本版交接](docs/handoff/2026-10-26_image-generation-0.1.4.md)。此前 `0.1.3` 的国内首次接入、来源迁移及启动自动升级验收仍见[历史记录](docs/handoff/2026-10-26_onboarding-candidate.md)。
 
 [维护者版本附件](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/releases) · [版本说明](./release/RELEASE_NOTES.md)
 
@@ -29,6 +29,16 @@ codex plugin add zhuojian-enterprise@zhuojian-enterprise-pilot
 
 授权后以真实身份和获权目录验证可用范围。工具尚未加载时，按宿主支持的方式刷新连接，必要时在新聊天继续。浏览器已登录灼见，不等于插件已获授权。
 
+### 使用灼见生成图片
+
+生图服务就绪且客户端加载本版后，可直接说：
+
+> 使用灼见生成一张图片，并保存到我的个人空间。
+
+插件查询当前平台图片能力，使用与网页相同的灼见生图服务、模型权限和额度。首次需要本人在原生授权页授予 `files:write`；此后按明确生图意图创建新文件，无需逐图业务确认，也不覆盖原件。任务排队或处理中会查询原任务，完成后直接显示原生图片预览和正式工作空间文件回执。断线或结果未知不会换请求编号再生成。
+
+实际生图由灼见服务端调用企业配置的模型，不改用客户端订阅生图。没有视频工具时不宣称可生视频；本版仅接通图片能力。
+
 `zhuojian-enterprise-pilot` 是现有市场的技术名称，界面可能显示“灼见企业试点”。不同宿主版本的入口可能不同；没有终端或代码环境时使用宿主已有的插件连接界面，不要求员工自行安装开发依赖。
 
 ### 更新与旧版本迁移
@@ -54,7 +64,7 @@ codex plugin add zhuojian-enterprise@zhuojian-enterprise-pilot
 
 维护者也可从版本附件取得 ZIP，通过获准的国内通道交付：
 
-1. 从 [Releases](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/releases) 下载目标版本的 `zhuojian-enterprise-marketplace-0.1.3-pilot.zip` 并核对 SHA256，确认文件名和版本一致。
+1. 从 [Releases](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/releases) 下载目标版本的 `zhuojian-enterprise-marketplace-0.1.4-pilot.zip` 并核对 SHA256，确认文件名和版本一致。
 2. 完整解压，保留 `.agents` 隐藏目录。
 3. 将下面的路径换成解压后包含 `.agents/plugins/marketplace.json` 的目录：
 
@@ -71,26 +81,26 @@ codex plugin add zhuojian-enterprise@zhuojian-enterprise-pilot
 
 - 插件面向灼见平台已开通接入的企业，不只对应某个固定企业；具体能力由当前身份和服务端权限决定。
 - 安装包不包含个人账号或令牌。下载插件不会获得其他企业的数据权限；缺少账号或权限时联系所在企业管理员。
-- 写入、上传等操作仍由本人在第一方页面确认，宿主工具许可不能代替业务确认。
-- 插件提供企业工具和业务说明；模型与本机代码执行能力由客户端提供。
+- 业务写入和外部文件上传仍由本人在第一方页面确认，宿主工具许可不能代替业务确认；图片新建使用前述一次 OAuth 授权和明确生成意图。
+- 插件提供企业工具和说明；推理与本机代码由客户端提供，灼见图片生成由 SaaS 执行。
 
 ## 包的区别
 
 | 文件 | 用途 |
 | --- | --- |
-| `zhuojian-enterprise-marketplace-0.1.3-pilot.zip` | Codex 完整市场包，供手动分发和导入 |
-| `zhuojian-enterprise-0.1.3-pilot.zip` | 单独插件目录，供支持该格式的导入流程使用 |
-| `workbuddy-zhuojian-enterprise-0.1.3-pilot.zip` | WorkBuddy 连接器试点包，真实客户端导入及 OAuth 待验收 |
+| `zhuojian-enterprise-marketplace-0.1.4-pilot.zip` | Codex 完整市场包，供手动分发和导入 |
+| `zhuojian-enterprise-0.1.4-pilot.zip` | 单独插件目录，供支持该格式的导入流程使用 |
+| `workbuddy-zhuojian-enterprise-0.1.4-pilot.zip` | WorkBuddy 连接器试点包，真实客户端导入及 OAuth 待验收 |
 
 WorkBuddy 说明见[连接器 README](./workbuddy-zhuojian-enterprise/README.md)。本次未提交公共插件商店，也未完成 Claude Code 客户端适配验收。
 
 ## 验证与维护
 
-本版包含首次接入 Skill、只读连接诊断、本人登录引导和国内来源接入，并修复真实安装状态校验。17 个文件从规范源最终 `0.1.3` 构建逐字导入，三个 ZIP 的哈希及内容校验通过；公司隔离 CI 已通过 96 项测试、共享源同步检查、构建和分发验证。
+本版保留首次接入、本人登录及国内自动更新，并补齐图片能力发现、任务恢复、原生预览和正式文件交付说明。17 个文件从规范源 `0.1.4` 构建逐字导入，三个 ZIP 的哈希及内容校验通过；源码导出逐文件核对原始 Git blob，不以 Windows 换行转换后的检出内容代替规范源。
 
-国内真实 HTTPS 的 43 个公共文件已通过状态、MIME 和 SHA256 核验；私有及缺失路径返回 404，POST 返回 403。宿主仅靠启动即从原 `0.1.2` 安装更新到 `0.1.3`，实际 Git 提交和分发文件匹配；独立来源迁移也已一次完成。隔离 fixture 另覆盖离线保留原安装。
+本版国内候选包含 58 个公共文件，保留上一版全部 38 个不可变对象及下载；正式指针由受保护流程在后端就绪后切换。候选构建与本地验证不冒充线上 HTTPS、实际宿主或真实生图验收，最新状态见[本版交接](docs/handoff/2026-10-26_image-generation-0.1.4.md)。
 
-现有真实宿主已核验 `0.1.3`、国内来源、OAuth 保留及只读业务联通；Windows Git 换行转换的完整性边界见[交付记录](docs/handoff/2026-10-26_onboarding-candidate.md)。真实业务写入、上传、企业管理员宿主、WorkBuddy 和手机真机仍须分别验证。
+历史 `0.1.3` 已核验国内来源、OAuth 保留及只读业务联通；Windows Git 换行转换的完整性边界见[历史交付记录](docs/handoff/2026-10-26_onboarding-candidate.md)。真实业务写入、外部上传、企业管理员宿主、WorkBuddy 和手机真机仍须分别验证。包内 README 记录构建候选时的状态，正式发行状态以本仓交接和 Release 为准。
 
 校验文件见 [`release/SHA256SUMS`](./release/SHA256SUMS) 和 [`release/build-receipt.json`](./release/build-receipt.json)。回执中的 `not-deployed`、`not-installed`、`not-tested` 说明构建器不执行这些动作，不能代表当前线上状态。
 
