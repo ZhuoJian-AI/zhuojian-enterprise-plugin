@@ -2,7 +2,7 @@
 
 在 Codex 中连接你已获授权的企业业务：查询业务数据、发现可用应用、使用灼见生成图片，并把结果交付到企业工作空间。
 
-**0.1.4 已上线国内入口，并完成真实灼见生图验收。** 当前聊天已通过本人授权生成图片，显示原生预览并取得正式文件回执；原生升级到 `0.1.4` 及 OAuth 保留也已通过。规范源、17 个客户端文件、三个 ZIP 及国内 HTTPS 已核验，公开附件发行状态见[本版交接](docs/handoff/2026-10-26_image-generation-0.1.4.md)。此前 `0.1.3` 的首次接入、来源迁移及启动自动升级验收仍见[历史记录](docs/handoff/2026-10-26_onboarding-candidate.md)。
+**[0.1.4 已正式发行](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/releases/tag/v0.1.4)，并完成真实灼见生图验收。** 当前聊天已通过本人授权生成图片，显示原生预览并取得正式文件回执；原生升级到 `0.1.4` 及 OAuth 保留也已通过。17 个客户端文件、三个 ZIP、国内 HTTPS 与公开五附件匿名下载已核验，详情见[本版交接](docs/handoff/2026-10-26_image-generation-0.1.4.md)。此前 `0.1.3` 的首次接入、来源迁移及启动自动升级验收仍见[历史记录](docs/handoff/2026-10-26_onboarding-candidate.md)。
 
 [维护者版本附件](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/releases) · [版本说明](./release/RELEASE_NOTES.md)
 
