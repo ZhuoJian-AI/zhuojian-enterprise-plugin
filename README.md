@@ -1,6 +1,6 @@
 # 灼见企业插件
 
-**0.1.6 企业管理员 AI 管理增补仍为未发行候选，依赖 SaaS 对应候选部署。** 支持管理员按服务器实际公开的 `discover_admin_capabilities`、`query_admin`、`execute_admin` 管理本企业；服务器注册与代码上传保留人工操作。新管理范围须本人重新授权，默认仍只读，插件安装不会增加权限。候选构建及未验边界见[交接](docs/handoff/2026-11-02_enterprise-admin-ai-client.md)。
+**0.1.6 企业管理员 AI 管理已在国内官方分发上线，配套 SaaS 与 Workplace 已发布。** 支持管理员按服务器实际公开的 `discover_admin_capabilities`、`query_admin`、`execute_admin` 管理本企业；服务器注册与代码上传保留人工操作。新管理范围须本人重新授权，默认仍只读，插件安装不会增加权限。真实管理员和各宿主验收仍待完成，准确发行范围见[交接](docs/handoff/2026-11-02_enterprise-admin-ai-client.md)。
 
 0.1.5 四步配对交接保留为历史记录；其服务端已有独立分发登记，本轮不覆盖其版本或不可变附件。原候选范围与宿主差异见[交接](docs/handoff/2026-11-02_four-step-pairing-candidate.md)，下方0.1.4为既有公开发行记录。
 
@@ -8,7 +8,7 @@
 
 **[0.1.4 已正式发行](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/releases/tag/v0.1.4)，并完成真实灼见生图验收。** 当前聊天已通过本人授权生成图片，显示原生预览并取得正式文件回执；原生升级到 `0.1.4` 及 OAuth 保留也已通过。17 个客户端文件、三个 ZIP、国内 HTTPS 与公开五附件匿名下载已核验，详情见[本版交接](docs/handoff/2026-10-26_image-generation-0.1.4.md)。此前 `0.1.3` 的首次接入、来源迁移及启动自动升级验收仍见[历史记录](docs/handoff/2026-10-26_onboarding-candidate.md)。
 
-[维护者版本附件](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/releases) · [版本说明](./release/RELEASE_NOTES.md)
+[当前官方版本](https://ai-platform.staging.zhuojianai.com/enterprise-plugin/updates/latest.json) · [历史版本附件](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/releases) · [版本说明](./release/RELEASE_NOTES.md)
 
 ## 员工安装与首次连接
 
@@ -66,9 +66,9 @@ codex plugin marketplace add ZhuoJian-AI/zhuojian-enterprise-plugin
 codex plugin add zhuojian-enterprise@zhuojian-enterprise-pilot
 ```
 
-维护者也可从版本附件取得 ZIP，通过获准的国内通道交付：
+维护者也可从国内官方分发取得 ZIP：
 
-1. 从 [Releases](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/releases) 下载目标版本的 `zhuojian-enterprise-marketplace-0.1.4-pilot.zip` 并核对 SHA256，确认文件名和版本一致。
+1. 下载 [0.1.6 marketplace ZIP](https://ai-platform.staging.zhuojianai.com/enterprise-plugin/updates/downloads/0.1.6/zhuojian-enterprise-marketplace-0.1.6-pilot.zip)，按 [SHA256SUMS](./release/SHA256SUMS) 核对文件名、版本及哈希。
 2. 完整解压，保留 `.agents` 隐藏目录。
 3. 将下面的路径换成解压后包含 `.agents/plugins/marketplace.json` 的目录：
 
@@ -92,19 +92,21 @@ codex plugin add zhuojian-enterprise@zhuojian-enterprise-pilot
 
 | 文件 | 用途 |
 | --- | --- |
-| `zhuojian-enterprise-marketplace-0.1.4-pilot.zip` | Codex 完整市场包，供手动分发和导入 |
-| `zhuojian-enterprise-0.1.4-pilot.zip` | 单独插件目录，供支持该格式的导入流程使用 |
-| `workbuddy-zhuojian-enterprise-0.1.4-pilot.zip` | WorkBuddy 连接器试点包，真实客户端导入及 OAuth 待验收 |
+| `zhuojian-enterprise-marketplace-0.1.6-pilot.zip` | Codex 完整市场包，供手动分发和导入 |
+| `zhuojian-enterprise-0.1.6-pilot.zip` | 单独插件目录，供支持该格式的导入流程使用 |
+| `workbuddy-zhuojian-enterprise-0.1.6-pilot.zip` | WorkBuddy 连接器试点包，真实客户端导入及 OAuth 待验收 |
 
 WorkBuddy 说明见[连接器 README](./workbuddy-zhuojian-enterprise/README.md)。本次未提交公共插件商店，也未完成 Claude Code 客户端适配验收。
 
 ## 验证与维护
 
-本版保留首次接入、本人登录及国内自动更新，并补齐图片能力发现、任务恢复、原生预览和正式文件交付说明。17 个文件从规范源 `0.1.4` 构建逐字导入，三个 ZIP 的哈希及内容校验通过；源码导出逐文件核对原始 Git blob，不以 Windows 换行转换后的检出内容代替规范源。
+0.1.6 的19个文件及三个ZIP来自最终规范源 `06576e15`，本机COA-CI构建、校验及公共仓库验证通过，PR #6 已合并。国内0.1.6已激活，89个公开文件HTTPS字节、Git克隆和新旧资源均通过；企业管理员本人新授权与真实管理操作、各宿主原生和真机验收仍待完成。见[0.1.6交接](docs/handoff/2026-11-02_enterprise-admin-ai-client.md)。
 
-本版国内入口已激活，58 个公共文件的 HTTPS、MIME、哈希及严格 TLS Git 克隆通过，9 个 Git 文件逐字核验；上一版全部 38 个不可变对象及下载保留。当前聊天真实任务通过灼见服务交付一张 `1536×1024` PNG，计量审计确认使用企业目录的 `gpt-image-2`；详情见[本版交接](docs/handoff/2026-10-26_image-generation-0.1.4.md)。
+0.1.4 历史版本保留首次接入、本人登录及国内自动更新，并补齐图片能力发现、任务恢复、原生预览和正式文件交付说明。当时17个文件从规范源 `0.1.4` 构建逐字导入，三个ZIP的哈希及内容校验通过；源码导出逐文件核对原始Git blob。
 
-历史 `0.1.3` 已核验国内来源、OAuth 保留及只读业务联通；Windows Git 换行转换的完整性边界见[历史交付记录](docs/handoff/2026-10-26_onboarding-candidate.md)。本版原生升级采用宿主正常投影一致的验收依据，不宣称安装缓存等于 Git 原始字节。真实业务写入、外部上传、企业管理员宿主、WorkBuddy 和手机真机仍须分别验证。包内 README 记录构建候选时的状态，正式发行状态以本仓交接和 Release 为准。
+0.1.4 当时的国内入口58个公共文件HTTPS、MIME、哈希及严格TLS Git克隆通过，9个Git文件逐字核验，前版38个不可变对象及下载保留。历史聊天实际通过灼见服务交付一张 `1536×1024` PNG，计量审计确认使用企业目录的 `gpt-image-2`；详情见[当时交接](docs/handoff/2026-10-26_image-generation-0.1.4.md)。
+
+历史 `0.1.3` 已核验国内来源、OAuth保留及只读业务联通；Windows Git换行转换的完整性边界见[历史交付记录](docs/handoff/2026-10-26_onboarding-candidate.md)。历史原生升级采用宿主正常投影一致的依据，不宣称安装缓存等于Git原始字节。真实业务写入、外部上传、企业管理员宿主、WorkBuddy和手机真机仍须分别验证。包内README记录构建器执行范围，当前正式版本以国内官方latest和本仓交接为准。
 
 校验文件见 [`release/SHA256SUMS`](./release/SHA256SUMS) 和 [`release/build-receipt.json`](./release/build-receipt.json)。回执中的 `not-deployed`、`not-installed`、`not-tested` 说明构建器不执行这些动作，不能代表当前线上状态。
 
