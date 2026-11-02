@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "zhuojian-enterprise",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "检查企业连接并引导本人登录，查询获权业务、使用灼见生成图片并交付工作空间文件。",
   "author": { "name": "ZhuoJian AI" },
   "keywords": ["enterprise", "workspace", "business"],

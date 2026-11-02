@@ -1,6 +1,6 @@
 ---
 name: zhuojian-enterprise
-description: 检查灼见企业连接、引导首次登录，查询获权业务、使用灼见生图服务并交付工作空间文件。用于首次使用、连接异常、生成图片，以及查询或办理企业业务时。
+description: 检查灼见企业连接、引导首次登录，查询获权业务、办理已开放的企业管理员后台操作、使用灼见生图服务并交付工作空间文件。用于首次使用、连接异常、企业管理、生成图片，以及查询或办理企业业务时。
 ---
 
 # 灼见企业业务、图片与文件
@@ -37,6 +37,19 @@ description: 检查灼见企业连接、引导首次登录，查询获权业务�
 6. 超时、断线、`executing` 或 `unknown` 不证明失败，不能自动更换 `requestId` 重放。先查询同一 `approvalId`；`unknown` 或不允许重试时停止自动写入并报告待核实。`rejected` / `expired` 不得重用原确认。若首次申请的响应丢失而尚无 `approvalId`，只允许用完全相同的原工具和参数/请求 ID 恢复原申请，不创建新请求；仍未知则保留请求 ID 供人工核对。
 
 管理员只读工具 `list_employees`、`list_departments`、`list_roles` 使用 `offset`（默认 0）、`limit`（默认 50，最多 200）。`create_department` 使用 `name`、`slug`、可选 `description` / `parentId`；`update_department` 使用 `departmentId`、列表返回的 `expectedVersion`、实际更改字段。两种写入都带 `requestId`，沿用相同第一方确认流程。角色和员工列表不授予修改角色、授权或代员工审批的能力。
+
+## 企业管理员后台管理
+
+只有本轮 `tools/list` 实际提供 `discover_admin_capabilities`、`query_admin`、`execute_admin`，且 `get_identity` 确认为本人企业管理员时，才使用本节。说明书、插件版本或后台页面可见不代表服务器已启用这些工具。缺失时说明当前连接尚无此管理能力，回到设置引导核查；不拼接管理 API、不索要 Cookie、管理员密码、服务器凭据或平台超级管理员身份。
+
+1. 先核对 `get_identity.grantedScopes`。管理查询需要 `admin:manage:read`，管理修改需要 `admin:manage:write`；请求范围只是上限，第一方页面仍默认只读，管理写入必须由本人主动选择。已有只读连接或旧 `admin:read` / `admin:write` 不会自动获得新管理权限；需要时通过宿主原生 OAuth 让本人重新授权，保留无关连接。不能刷新令牌扩大权限、由 AI 代批或从插件配置冒充授权。
+2. 用 `discover_admin_capabilities` 按 `query`、`offset`、`limit` 分页发现真实管理目录。它按当前范围返回 `operationKey`、`schemaDigest`、参数 Schema 和是否写入；所有字段以实际工具 Schema 为准。管理员无需提供组织 UUID，企业归属由服务端绑定。只使用本轮发现的操作，不从文档编造操作键、参数、权限或成功结果。
+3. 查询用 `query_admin`，按本轮目录提交 `operationKey`、`schemaDigest` 和 `parameters`；目录列出的 `path`、`query`、`body` 分别放到相应参数中。修改用 `execute_admin`，增加稳定 `requestId`，按返回的第一方确认链接由本人核对具体修改；确认后以原工具、原参数、原请求 ID 和 `approvalId` 重试。沿用前文确认链接来源校验、版本冲突、幂等和未知结果处理，不把待确认或 HTTP 成功当作实际修改已生效。
+4. 需要密码、连接密钥或私密附件时，由本人在服务端返回的第一方确认页面填写或选择。AI 不在工具参数、聊天、日志或报告中收集这些值；不手工伪造私密输入或批准接口。只有在工具实际返回完成结果并核查保存状态后，才报告完成。修改本人登录资料或撤销当前连接后按真实状态提示重新连接，不能借旧令牌继续调用。
+
+管理范围以当前企业管理员和实时目录为准，包括人员、部门、角色权限、企业资料、应用配置、工作空间、AI 设置、运行排查与本人连接维护。服务器注册与代码上传保留人工操作；平台专属能力、退役功能、机器部署凭据不会由此开放，普通业务资料上传不属于代码上传。
+
+通用文件工具仍分别要求 `files:read` / `files:write` 以及本人在连接中选择的工作空间；管理员身份或管理范围不能替代这些文件授权。按实际目录与回执办理上传、下载和版本恢复；不把前一连接的临时文件授权移到新连接使用。
 
 ## 使用灼见生成图片
 

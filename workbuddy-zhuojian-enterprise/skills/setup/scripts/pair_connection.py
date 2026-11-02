@@ -128,7 +128,9 @@ def native_command(host, origin, server='zhuojian-enterprise'):
         raise ValueError('Existing native connector points elsewhere; do not overwrite it')
     command = [executable, 'mcp', 'login', server, '--no-browser']
     if host == 'codex':
-        command += ['--scopes', 'business:read,files:read,admin:read']
+        # Request ceiling only: the first-party page still defaults to read-only.
+        # Admin management and file writes are issued only after the person opts in.
+        command += ['--scopes', 'business:read,files:read,files:write,admin:read,admin:manage:read,admin:manage:write']
     return command
 
 
@@ -156,7 +158,7 @@ def run_native(command, ticket, origin, *, timeout=300):
                 if code != 0 or not announced:
                     raise ValueError('Native OAuth did not finish; no business connection has been verified')
                 print(json.dumps({'status': 'native_authenticated', 'businessVerified': False,
-                                  'next': 'Load native MCP tools, get_identity, discover_capabilities and read actual authorized data'}), flush=True)
+                                  'next': 'Load native MCP tools, get_identity, then discover_capabilities for employees or discover_admin_capabilities for administrators; verify actual authorized data'}), flush=True)
                 return
             # Suppress native logs, especially any fallback callback instructions.
             # We never supply stdin or parse a callback's code/state/token.

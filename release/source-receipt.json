@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "https://github.com/ZhuoJian-AI/ai-platform",
+  "sourceSha": "06576e157707f282022e7f5df9f19640e55d9c6f",
+  "version": "0.1.6",
+  "endpoint": "https://ai-platform.staging.zhuojianai.com/api/v1/enterprise-mcp",
+  "packageReceiptSha256": "54540ee6c07f87aad0839a546cdeb53b9519856cc9f7780f4157974cd8299373",
+  "archives": {
+    "zhuojian-enterprise-0.1.6-pilot.zip": "ed6d544478b9833cdc6eee6f830ff08b10828ff5ee375890ca08006ca984bdf2",
+    "workbuddy-zhuojian-enterprise-0.1.6-pilot.zip": "16e69f61eb5510ddf3078aa1f7cf6250352f6b9751ba09c886280d40be1629c3",
+    "zhuojian-enterprise-marketplace-0.1.6-pilot.zip": "a006a2c5dfed86ea7eff85285631795eb4f918a690d468c6a2f6b0336e0d3439"
+  },
+  "verifiedFiles": 19,
+  "sourceFilesCompared": 18,
+  "ci": {
+    "provider": "authorized-local-ci",
+    "state": "success",
+    "sourceSha": "06576e157707f282022e7f5df9f19640e55d9c6f",
+    "recordSha256": "cb033da05928c5795495c67a42589658b796a8c7e80000607453bbe3b408014a",
+    "checks": [
+      {
+        "name": "packages",
+        "exitCode": 0,
+        "logSha256": "54540ee6c07f87aad0839a546cdeb53b9519856cc9f7780f4157974cd8299373"
+      },
+      {
+        "name": "package-verify",
+        "exitCode": 0,
+        "logSha256": "d01aac081e6d752f9b07ad6cd0a355d262034e9be5d8a210c7681ee6be4ec127"
+      },
+      {
+        "name": "publication",
+        "exitCode": 0,
+        "logSha256": "3705e54ebe56db07eff9a69d856359fcd94aefda8bc841b0a4b8c58b66fc061e"
+      },
+      {
+        "name": "image",
+        "exitCode": 0,
+        "logSha256": "10573d1a9194baa846e90074d4a52ff46bb735d4ec954c09ac7c686f06dc98db"
+      },
+      {
+        "name": "public-http",
+        "exitCode": 0,
+        "logSha256": "fdae93ef0fc6dad37a25709cda5da2a14eb4e81b36199f071e8f4245bb3401a8"
+      },
+      {
+        "name": "http-git-clone",
+        "exitCode": 0,
+        "logSha256": "e750b8c9b0c9561f920a056d9d8b655fd02c282a11e8ffc52bee4bb659cfa8b3"
+      }
+    ]
+  },
+  "publicCandidateHeadBefore": "0fcffc22370ecd17c5c89eba239b7238931eb7c1",
+  "releaseStatus": "not-published-by-this-import",
+  "installationStatus": "not-performed",
+  "validation": "Byte/hash/provenance verification only; no build or CI command executed here"
+}
