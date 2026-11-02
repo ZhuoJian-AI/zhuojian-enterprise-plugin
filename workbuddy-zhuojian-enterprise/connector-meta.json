@@ -7,7 +7,7 @@
   "description_en": "Query authorized business data, generate and preview images with ZhuoJian, and deliver workspace files; confirm business changes and external uploads on ZhuoJian.",
   "source": "zhuojian-enterprise",
   "type": "mcp",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "minWorkbuddyVersion": "4.24.0",
   "examples_zh": ["查看我当前可用的业务能力", "使用灼见生成图片", "把分析结果保存到我有权限的工作空间"],
   "examples_en": ["Show my available business capabilities", "Generate an image with ZhuoJian", "Save my analysis to a workspace I can write to"]
