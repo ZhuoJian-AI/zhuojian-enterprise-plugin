@@ -1,3 +1,11 @@
+# 0.1.5 · 四步配对候选（未发行）
+
+已登录底座复制说明 → AI返回后台连接码 → 本人粘回确认 → AI核对身份并试读。默认只读；原生OAuth凭据、旧授权及业务写入本人确认保持。
+
+Codex使用随包助手；Claude Code要求宿主PTY，再绑定原生授权请求。WorkBuddy/Claude Desktop沿各自连接器界面，不套用其他宿主命令。原生回调能力、正式授权和业务读取分别验收；缺宿主接口或运行时能力时明确报告，不要求员工安装开发环境。
+
+本候选没有发布到国内更新源，没有创建GitHub Release，也不证明三宿主全部通过。
+
 # 0.1.4 · 灼见生图服务接入
 
 国内第一方 `0.1.4` 及[公开五附件](https://github.com/ZhuoJian-AI/zhuojian-enterprise-plugin/releases/tag/v0.1.4)已发行：58 个公共文件 HTTPS、严格 TLS Git 及公开匿名下载验证通过，原生升级及 OAuth 保留通过；当前聊天已完成一次获权真实生图，直接显示预览并取得正式工作空间文件回执。完整记录见[本版交接](../docs/handoff/2026-10-26_image-generation-0.1.4.md)。
